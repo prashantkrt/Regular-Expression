@@ -45,5 +45,15 @@ public class RegularExpression2 {
         } else {
             System.out.println("The string is not valid.");
         }
+
+        //example 2
+        Pattern pattern2 = Pattern.compile("a*b");
+        Matcher matcher2 = pattern2.matcher("aaaaaab");
+        if (matcher2.matches()) {
+            System.out.println("The string is valid for example2");
+        }
+        else {
+            System.out.println("The string is not valid for example2");
+        }
     }
 }
