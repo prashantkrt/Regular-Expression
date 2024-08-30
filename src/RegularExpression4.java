@@ -10,7 +10,7 @@ public class RegularExpression4 {
         System.out.println(matcher.matches());
 
         //create RE that creates 10 digits only
-        //short hand
+        //shorthand
         System.out.println(Pattern.matches("[0-9]{10}","1234567890")); //true
 
 
