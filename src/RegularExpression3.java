@@ -78,5 +78,18 @@ public class RegularExpression3 {
 
         System.out.println(Pattern.matches("[789]{1}\\d{9}", "8853038949"));//true
         System.out.println(Pattern.matches("[789]{1}\\d{9}", "3853038949"));//false (starts from 3)
+
+        // Check if all elements are numbers
+        System.out.println(Pattern.matches("\\d+", "1234")); //true
+
+        // Check if all elements are non-numbers
+        System.out.println(Pattern.matches("\\D+", "1234")); //false
+
+        // Check if all the elements are non-numbers
+        System.out.println(Pattern.matches("\\D+", "Gfg")); //true
+        System.out.println(Pattern.matches("\\D+", "gfg1")); //false
+
+        // Check if all the elements are non-spaces
+        System.out.println(Pattern.matches("\\S+", "gfg")); //true
     }
 }

@@ -3,6 +3,7 @@ import java.util.regex.Pattern;
 
 public class RegularExpression2 {
     public static void main(String[] args) {
+
         /*
          * [abc] Single character of a, b or c
          * [^abc] Any character except a, b, or c (negation)
@@ -54,6 +55,59 @@ public class RegularExpression2 {
         }
         else {
             System.out.println("The string is not valid for example2");
+        }
+
+        //example 3
+        Pattern pattern3 = Pattern.compile("[a-z]");
+        Matcher matcher3 = pattern3.matcher("aa");
+        System.out.println(matcher3.matches()); // false as a is two times
+
+        Pattern pattern4 = Pattern.compile("[a-zA-Z]+"); // one or more character
+        Matcher matcher4 = pattern4.matcher("aa");
+        System.out.println(matcher4.matches()); //true
+
+        Pattern pattern5 = Pattern.compile("[a-zA-Z]?"); // zero or one character
+        Matcher matcher5 = pattern5.matcher("aa");
+        System.out.println(matcher5.matches());//false
+        Matcher matcher6 = pattern5.matcher("");
+        System.out.println(matcher6.matches());//true
+        Matcher matcher7 = pattern5.matcher(" ");
+        System.out.println(matcher7.matches());//it has black space
+
+
+        /*
+        *
+        * \b (Word Boundary): Matches positions at the start or end of a word.
+        * \B (Non-Word Boundary): Matches positions where there isn't a word boundary,
+        *  i.e., within words or between non-word characters.
+        * */
+
+        //example 5
+        String regexWordBoundary = "\\bword\\b";
+        String input1 = "This is a word hello hello";
+
+        // Non-word boundary example
+        String regexNonWordBoundary = "\\Bword\\B";
+        String input2 = "swordsmith";
+
+        // Create pattern and matcher objects
+        Pattern patternWordBoundary = Pattern.compile(regexWordBoundary);
+        Matcher matcherWordBoundary = patternWordBoundary.matcher(input1);
+
+        Pattern patternNonWordBoundary = Pattern.compile(regexNonWordBoundary);
+        Matcher matcherNonWordBoundary = patternNonWordBoundary.matcher(input2);
+
+        // Check for matches
+        if (matcherWordBoundary.find()) {
+            System.out.println("Word boundary: Match found in input1."); //true
+        } else {
+            System.out.println("Word boundary: No match found in input1.");
+        }
+
+        if (matcherNonWordBoundary.find()) {
+            System.out.println("Non-word boundary: Match found in input2.");
+        } else {
+            System.out.println("Non-word boundary: No match found in input2.");  // true
         }
     }
 }
